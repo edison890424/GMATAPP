@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add a New Student</h2>
+<form method="post" action="{{ url_for('add_student') }}">
+    <label for="student_id">Student ID:</label>
+    <input type="text" name="学员编号" required><br>
+
+    <label for="name">Name:</label>
+    <input type="text" name="姓名" required><br>
+
+    <label for="registration_time">Registration Time:</label>
+    <input type="text" name="报名时间"><br>
+
+    <label for="class_number">Class Number:</label>
+    <input type="text" name="班号"><br>
+
+    <label for="verification_number">Verification Number:</label>
+    <input type="text" name="验证号"><br>
+
+    <label for="gender">Gender:</label>
+    <input type="text" name="性别"><br>
+
+    <label for="mock_exam_score">Mock Exam Score:</label>
+    <input type="number" name="模考分"><br>
+
+    <label for="target_score">Target Score:</label>
+    <input type="number" name="目标分"><br>
+
+    <label for="exam_score">Exam Score:</label>
+    <input type="number" name="考试分"><br>
+
+    <label for="attended_classes">Attended Classes:</label>
+    <input type="text" name="参加过的班级"><br>
+
+    <label for="education_work_background">Education/Work Background:</label>
+    <input type="text" name="教育_工作背景"><br>
+
+    <label for="qq">QQ:</label>
+    <input type="text" name="QQ"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="邮箱"><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" name="电话"><br>
+
+    <label for="trial_period_verification_code">Trial Period Verification Code:</label>
+    <input type="text" name="试用期验证码"><br>
+
+    <button type="submit">Add Student</button>
+</form>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="register-container">
+    <h2>注册</h2>
+    <form id="registrationForm" method="post" action="{{ url_for('register') }}">
+        <div class="form-group">
+            <label for="username">用户名:</label>
+            <input type="text" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+            <div id="passwordStrength" class="strength-bar">
+                <div class="strength-bar-segment" id="segment1"></div>
+                <div class="strength-bar-segment" id="segment2"></div>
+                <div class="strength-bar-segment" id="segment3"></div>
+                <div class="strength-bar-segment" id="segment4"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">重复输入密码:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+        <div class="form-group">
+            <label for="verification_code">注册码:</label>
+            <input type="text" name="verification_code" required>
+        </div>
+        <div>
+            <button type="submit">注册</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('password').addEventListener('input', function() {
+        var password = this.value;
+        var segments = [
+            document.getElementById('segment1'),
+            document.getElementById('segment2'),
+            document.getElementById('segment3'),
+            document.getElementById('segment4')
+        ];
+
+        var strength = 0;
+        if (password.length >= 8) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[a-z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[\W_]/.test(password)) strength++;
+
+        segments.forEach((segment, index) => {
+            if (index < strength) {
+                segment.style.backgroundColor = 'green';
+            } else {
+                segment.style.backgroundColor = 'lightgray';
+            }
+        });
+    });
+
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirm_password').value;
+        if (password !== confirmPassword) {
+            alert('密码和重复输入密码不匹配');
+            e.preventDefault();
+        }
+    });
+</script>
+{% endblock %}

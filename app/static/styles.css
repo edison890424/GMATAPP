@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background-color: #343a40;
+    padding: 1em;
+}
+
+nav a {
+    color: white;
+    margin-right: 1em;
+    text-decoration: none;
+}
+
+.container {
+    padding: 2em;
+}
+
+.welcome-container, .login-container, .register-container {
+    text-align: center;
+    padding-top: 10%;
+}
+
+.welcome-container h1, .login-container h2, .register-container h2 {
+    color: #4CAF50;
+    font-size: 2.5em;
+}
+
+.start-button, .login-container button, .register-container button {
+    display: inline-block;
+    padding: 1em 2em;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5em;
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+.start-button:hover, .login-container button:hover, .register-container button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 600px;
+    margin: auto;
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form .form-group label {
+    margin-bottom: 0.5em;
+}
+
+form .form-group input {
+    padding: 0.5em;
+    font-size: 1em;
+    width: 100%;
+}
+
+form button {
+    padding: 0.5em 2em;
+    align-self: center;
+}
+
+.strength-bar {
+    display: flex;
+    gap: 5px;
+    margin-top: 0.5em;
+}
+
+.strength-bar-segment {
+    width: 25%;
+    height: 10px;
+    background-color: lightgray;
+    border-radius: 2px;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 0.5em;
+    text-align: left;
+}
+
+th {
+    cursor: pointer;
+}
+
+.landing-container {
+    display: flex;
+    height: calc(100vh - 4em); /* Adjust height to fill the window except for padding */
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    width: 30%;
+    max-width: 250px;
+    min-width: 200px;
+    background-color: #343a40;
+    color: white;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul li {
+    margin-bottom: 1em;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2em;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.tab-content {
+    display: none;
+}

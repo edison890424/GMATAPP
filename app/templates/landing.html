@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="landing-container">
+    <div class="sidebar">
+        <ul>
+            <li><a href="#" id="tab1" onclick="showTab('content1')">阅读单篇练习</a></li>
+            <li><a href="#">阅读套题练习</a></li>
+            <li><a href="#">逻辑套题练习</a></li>
+            <li><a href="#">逻辑题库</a></li>
+            <li><a href="#">Verbal模考</a></li>
+            <li><a href="#">查看做题记录</a></li>
+            <li><a href="#">单词例句查询</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div id="content1" class="tab-content">
+            <h2>文章数据库</h2>
+            <div>
+                <label for="filter1">Filter 1:</label>
+                <select id="filter1" onchange="applyFilters()">
+                    <option value="">All</option>
+                    <!-- Add other filter options here -->
+                </select>
+                <label for="filter2">Filter 2:</label>
+                <select id="filter2" onchange="applyFilters()">
+                    <option value="">All</option>
+                    <!-- Add other filter options here -->
+                </select>
+                <button onclick="resetFilters()">Reset All</button>
+            </div>
+            <table id="articleTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('关键词')">关键词 <span id="sort_keyword"></span></th>
+                        <th onclick="sortTable('段落数')">段落数 <span id="sort_paragraph_count"></span></th>
+                        <th onclick="sortTable('字数')">字数 <span id="sort_word_count"></span></th>
+                        <th onclick="sortTable('文章长度')">文章长度 <span id="sort_length"></span></th>
+                        <th onclick="sortTable('题量')">题量 <span id="sort_question_count"></span></th>
+                        <th onclick="sortTable('做题时间')">做题时间 <span id="sort_time"></span></th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <td>{{ row.关键词 }}</td>
+                        <td>{{ row.段落数 }}</td>
+                        <td>{{ row.字数 }}</td>
+                        <td>{{ row.文章长度 }}</td>
+                        <td>{{ row.题量 }}</td>
+                        <td>{{ row.做题时间 }}</td>
+                        <td><button>开始做题</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- Add content for other tabs here -->
+    </div>
+</div>
+
+<script>
+function showTab(contentId) {
+    var contents = document.getElementsByClassName('tab-content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = 'none';
+    }
+    document.getElementById(contentId).style.display = 'block';
+}
+
+function sortTable(column) {
+    // Implement sorting logic here
+}
+
+function applyFilters() {
+    // Implement filter logic here
+}
+
+function resetFilters() {
+    document.getElementById('filter1').value = '';
+    document.getElementById('filter2').value = '';
+    // Reset table content
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    showTab('content1'); // Automatically select the first tab
+});
+</script>
+{% endblock %}

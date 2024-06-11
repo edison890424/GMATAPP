@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All Students</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Registration Time</th>
+            <th>Class Number</th>
+            <th>Verification Number</th>
+            <th>Gender</th>
+            <th>Mock Exam Score</th>
+            <th>Target Score</th>
+            <th>Exam Score</th>
+            <th>Attended Classes</th>
+            <th>Education/Work Background</th>
+            <th>QQ</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Trial Period Verification Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.学员编号 }}</td>
+            <td>{{ student.姓名 }}</td>
+            <td>{{ student.报名时间 }}</td>
+            <td>{{ student.班号 }}</td>
+            <td>{{ student.验证号 }}</td>
+            <td>{{ student.性别 }}</td>
+            <td>{{ student.模考分 }}</td>
+            <td>{{ student.目标分 }}</td>
+            <td>{{ student.考试分 }}</td>
+            <td>{{ student.参加过的班级 }}</td>
+            <td>{{ student.教育_工作背景 }}</td>
+            <td>{{ student.QQ }}</td>
+            <td>{{ student.邮箱 }}</td>
+            <td>{{ student.电话 }}</td>
+            <td>{{ student.试用期验证码 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
